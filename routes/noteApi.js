@@ -1,14 +1,13 @@
 const router = require('express').Router()
 const uuid = require('../helpers/uuid')
 const fs = require('fs')
+const dbJson = json.parse(fs.readFileSync("db/db.json", "utf8"));
 
 router.get('/api/notes', async (req, res) => {
-    const dbJson = json.parse(fs.readFileSync("db/db.json", "utf8"));
     res.json(dbJson);
 });
 
 router.post('api/notes', async (req, res) => {
-    const dbJson = json.parse(fs.readFileSync("db/db.json", "utf8"));
     const feedback = {
         title: req.body.title,
         text: req.body.text,
