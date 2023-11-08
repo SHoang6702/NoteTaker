@@ -1,16 +1,17 @@
-const express = require('express')
-const htmlPath = require('./routes/html.js')
-const noteApi = require('./routes/noteApi.js')
+const express = require('express');
+const html = require('./routes/html')
+const noteApi = require('./routes/noteApi')
 
 const PORT = process.env.PORT || 3001;
 
 const app = express();
 
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.static("public"));
-app.use(htmlPath());
-app.use(noteApi());
+app.use(express.static('public'));
+app.use(html)
+app.use(noteApi);
 
-app.listen(PORT, () =>
-  console.log(`App now listening at http://localhost:${PORT}`));
+app.listen(PORT, () => {
+    console.log(`Now listening on port http://localhost:${PORT}`);
+});
