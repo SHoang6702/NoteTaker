@@ -1,13 +1,13 @@
-const noteApi = require('express').Router()
+const router = require('express').Router()
 const uuid = require('../helpers/uuid')
 const fs = require('fs')
 const dbJson = json.parse(fs.readFileSync("db/db.json", "utf8"));
 
-noteApi.get('/api/notes', async (req, res) => {
+router.get('/api/notes', async (req, res) => {
     res.json(dbJson);
 });
 
-noteApi.post('api/notes', async (req, res) => {
+router.post('api/notes', async (req, res) => {
     const feedback = {
         title: req.body.title,
         text: req.body.text,
@@ -18,4 +18,4 @@ noteApi.post('api/notes', async (req, res) => {
     res.json(dbJson);
 });
 
-module.exports = noteApi
+module.exports =router
