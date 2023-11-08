@@ -18,4 +18,4 @@ router.post('api/notes', async (req, res) => {
     res.json(dbJson);
 });
 
-module.exports =router
+module.exports = router;
